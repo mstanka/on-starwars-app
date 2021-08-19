@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Person from '../components/Person';
 
 const PersonsPage = () => {
   const [persons, setPersons] = useState(null);
@@ -36,12 +37,15 @@ const PersonsPage = () => {
     <div className="bg-gray-800 w-full max-w-screen-xl mx-auto py-10 text-center text-gray-300">
       <div className="grid gap-2 justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {persons.map((person) => (
-          <li
+          <Person
             key={person.url}
-            className="max-w-xs w-full p-4 text-gray-700 bg-white border-2 border-gray-200 rounded-lg shadow-sm"
-          >
-            {person.name}
-          </li>
+            url={person.url}
+            name={person.name}
+            gender={person.gender}
+            birth={person.birth_year}
+            homeworld={person.homeworld}
+            starships={person.starships}
+          />
         ))}
       </div>
       <div className="relative mt-8">
