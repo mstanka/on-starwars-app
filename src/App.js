@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navigation from './layout/Navigation';
+import Footer from './layout/Footer';
 import PersonsPage from './pages/PersonsPage';
 import VehiclesPage from './pages/VehiclesPage';
 import HomePage from './pages/HomePage';
@@ -23,6 +24,7 @@ const App = () => {
           </Route>
         </Switch>
       </main>
+      <Footer />
     </Router>
   );
 };
