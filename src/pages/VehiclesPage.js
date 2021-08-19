@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Vehicle from '../components/Vehicle';
 import Container from '../layout/Container';
+import Spinner from '../components/Spinner';
 
 const VehiclesPage = () => {
   const [vehicles, setVehicles] = useState(null);
@@ -24,7 +25,7 @@ const VehiclesPage = () => {
   }, [pageCurrent]);
 
   if (error) return `Error: ${error.message}`;
-  if (!vehicles) return <div>Loading....</div>;
+  if (!vehicles) return <Spinner />;
 
   const handleNextPage = () => {
     setPageCurrent(pageNext);
