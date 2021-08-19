@@ -49,7 +49,7 @@ const PersonsPage = () => {
           />
         ))}
       </div>
-      <div className="relative mt-8">
+      <div className="relative mt-8 border-t pt-4">
         {pagePrev && (
           <button onClick={handlePrevPage} className="absolute left-10">
             &#60; Previous Page
