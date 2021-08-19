@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Person from '../components/Person';
+import Container from '../layout/Container';
 
 const PersonsPage = () => {
   const [persons, setPersons] = useState(null);
@@ -34,7 +35,7 @@ const PersonsPage = () => {
   };
 
   return (
-    <div className="bg-gray-800 w-full max-w-screen-xl mx-auto py-10 text-center text-gray-300">
+    <Container>
       <div className="grid gap-2 justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {persons.map((person) => (
           <Person
@@ -60,7 +61,7 @@ const PersonsPage = () => {
           </button>
         )}
       </div>
-    </div>
+    </Container>
   );
 };
 
