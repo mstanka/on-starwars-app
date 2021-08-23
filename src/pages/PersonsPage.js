@@ -14,14 +14,34 @@ const PersonsPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(pageCurrent)
-      .then((response) => {
-        setPagePrev(response.data.previous);
-        setPageNext(response.data.next);
-        setPersons(response.data.results);
-      })
-      .catch((error) => setError(error));
+    const getStarships = async (person) => {
+      const starshipPromises = person.starships.map((starship) =>
+        axios.get(starship),
+      );
+      const starships = await Promise.all(starshipPromises);
+      person.starshipNames = starships.map((starship) => starship.data.name);
+    };
+
+    const fetchPersons = async () => {
+      try {
+        const persons = await axios.get(pageCurrent);
+        setPagePrev(persons.data.previous);
+        setPageNext(persons.data.next);
+        const getStarshipPromises = [];
+        for (const person of persons.data.results) {
+          if (person.starships) {
+            getStarshipPromises.push(getStarships(person));
+            await Promise.all(getStarshipPromises);
+          } else {
+            person.starshipNames = [];
+          }
+        }
+        setPersons(persons.data.results);
+      } catch (error) {
+        setError(error);
+      }
+    };
+    fetchPersons();
   }, [pageCurrent]);
 
   if (error) return `Error: ${error.message}`;
@@ -46,7 +66,7 @@ const PersonsPage = () => {
             gender={person.gender}
             birth={person.birth_year}
             homeworld={person.homeworld}
-            starships={person.starships}
+            starships={person.starshipNames}
           />
         ))}
       </div>

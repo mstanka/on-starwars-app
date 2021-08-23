@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
-    <div className="w-full max-w-screen-2xl h-screen  overflow-hidden relative m-auto">
+    <div className="w-full max-w-screen-xl h-screen  overflow-hidden relative m-auto">
       <img
         className="absolute inset-0 h-full w-full object-cover"
         src="https://images.unsplash.com/photo-1547700055-b61cacebece9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
