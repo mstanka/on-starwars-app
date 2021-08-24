@@ -31,11 +31,11 @@ const PersonsPage = () => {
         for (const person of persons.data.results) {
           if (person.starships) {
             getStarshipPromises.push(getStarships(person));
-            await Promise.all(getStarshipPromises);
           } else {
             person.starshipNames = [];
           }
         }
+        await Promise.all(getStarshipPromises);
         setPersons(persons.data.results);
       } catch (error) {
         setError(error);
