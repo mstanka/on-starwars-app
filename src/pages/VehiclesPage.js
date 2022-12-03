@@ -9,7 +9,7 @@ const VehiclesPage = () => {
   const [filteredVehicles, setFilteredVehicles] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [pageCurrent, setPageCurrent] = useState(
-    `https://swapi.dev/api/vehicles/?page=1`,
+    `https://swapi.py4e.com/api/vehicles/?page=1`,
   );
   const [pagePrev, setPagePrev] = useState(null);
   const [pageNext, setPageNext] = useState(null);

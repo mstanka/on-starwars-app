@@ -7,7 +7,7 @@ import Spinner from '../components/Spinner';
 const PersonsPage = () => {
   const [persons, setPersons] = useState(null);
   const [pageCurrent, setPageCurrent] = useState(
-    `https://swapi.dev/api/people/?page=1`,
+    `https://swapi.py4e.com/api/people/?page=1`,
   );
   const [pagePrev, setPagePrev] = useState(null);
   const [pageNext, setPageNext] = useState(null);

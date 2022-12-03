@@ -5,8 +5,8 @@ const HomePage = () => {
     <div className="w-full max-w-screen-xl h-screen  overflow-hidden relative m-auto">
       <img
         className="absolute inset-0 h-full w-full object-cover"
-        src="https://images.unsplash.com/photo-1547700055-b61cacebece9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
-        alt=""
+        src="./images/starwars.jpeg"
+        alt="Star Wars"
       />
       <div className="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
       <div className="flex flex-col h-full items-center justify-center text-center relative">
